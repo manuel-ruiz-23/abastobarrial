@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+// import Header from './components/Header';
+import Landing from './components/Landing';
+import Map from './components/Map';
+import ColoniaSelector from './components/ColoniaSelector';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <WebContainer>
+        {/* <Header/> */}
+        <ColoniaSelector />
+        <Switch>
+          <Route exact path="/">
+            <Landing />
+          </Route>
+          <Route path="/mapa/:colonia">
+            <Map/>
+          </Route>
+        </Switch> 
+      </WebContainer>
+    </Router>
   );
-}
+};
+
+const WebContainer = styled.div`
+  height: 100vh;
+  background-color: #ffebd9;
+`;
 
 export default App;
