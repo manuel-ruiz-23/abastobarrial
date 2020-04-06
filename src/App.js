@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import './App.css';
 import {
@@ -7,19 +7,13 @@ import {
   Route,
 } from "react-router-dom";
 
-// import Header from './components/Header';
 import Landing from './components/Landing';
 import Map from './components/Map';
-import ColoniaSelector from './components/ColoniaSelector';
-
-
 
 function App() {
   return (
-    <Router>
-      <WebContainer>
-        {/* <Header/> */}
-        <ColoniaSelector />
+    <WebContainer>
+      <Router>
         <Switch>
           <Route exact path="/">
             <Landing />
@@ -28,13 +22,13 @@ function App() {
             <Map/>
           </Route>
         </Switch> 
-      </WebContainer>
-    </Router>
+      </Router>
+    </WebContainer>
   );
 };
 
 const WebContainer = styled.div`
-  height: 100vh;
+  height: 100%;
   background-color: #ffebd9;
 `;
 

@@ -2,14 +2,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  Link,
   useParams
 } from "react-router-dom"
+import MapsNavigation from './MapsNavigation';
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
-  padding-top: 44px;
+  flex-flow: column;
+  align-items: center;
+  /* padding-top: 44px; */
   overflow: hidden;
   >iframe{
     top: 0;
@@ -40,18 +41,14 @@ const Mapas = {
 export default function Map() {
   const { colonia } = useParams();
 
-  console.log('colonia', colonia);
 
   if (!(colonia in Mapas)) {
     return <CommingSoon>No tenemos esa colonia en nuestra base de datos :(</CommingSoon>;
   }
 
-  if (!Mapas[colonia]){
-    return <CommingSoon>Proximamente!!</CommingSoon>;
-  }
-
   return (
     <Container>
+      <MapsNavigation />
       <iframe
         src={Mapas[colonia]}
         width="640"
