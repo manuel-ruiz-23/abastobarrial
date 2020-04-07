@@ -55,6 +55,7 @@ const BoldRed = styled.span`
 `;
 
 const LandingContainer = styled.div`
+  padding: 0.5rem;
   font-family: sans-serif;
   text-align: center;
   display: flex;
