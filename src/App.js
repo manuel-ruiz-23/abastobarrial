@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import {
@@ -9,6 +9,7 @@ import {
 
 import Landing from './components/Landing';
 import Map from './components/Map';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/mapa/:colonia">
             <Map/>
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
         </Switch> 
       </Router>
