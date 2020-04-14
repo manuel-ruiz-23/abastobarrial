@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 interface Auth {
   uid: string
@@ -25,7 +26,7 @@ interface AuthProviderProps {
 }
 
 const AuthContextProvider = ({ children }: AuthProviderProps) => {
-  const [auth, setAuth] = useState(InitialState);
+  const [auth, setAuth] = useLocalStorage('auth', InitialState);
 
   function login(name: string, uid: string, photoUrl: string): void {
     setAuth({

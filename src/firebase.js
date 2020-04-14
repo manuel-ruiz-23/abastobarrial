@@ -2,14 +2,14 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDSuPT0cS0cuoBlDhLg0kJWas1EY7hlVJo",
-  authDomain: "consumelocalhmo-e72c5.firebaseapp.com",
-  databaseURL: "https://consumelocalhmo-e72c5.firebaseio.com",
-  projectId: "consumelocalhmo-e72c5",
-  storageBucket: "consumelocalhmo-e72c5.appspot.com",
-  messagingSenderId: "144064129273",
-  appId: "1:144064129273:web:9956a9b9c0fc08596a1a28",
-  measurementId: "G-Q9WNL0M5R3"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -19,26 +19,25 @@ firebase.auth().useDeviceLanguage();
 
 const fbProvider = new firebase.auth.FacebookAuthProvider();
 
-function loginWithFacebook() {
-  firebase.auth().signInWithPopup(fbProvider).then(function(result){
-    //this gices you a Facebook Access Token, you can use it to access the facebook API
-    // const token = result.credential.accessToken;
-    // The signed-in user info.
+async function loginWithFacebook() {
+
+  try {
+
+    const result = await firebase.auth().signInWithPopup(fbProvider)
+    
     const user = result.user;
-
-    // console.log('auth', token, user);
+    
     console.log('more auth', user.uid, user.displayName, user.photoURL);
-
+    
     return {
       uid: user.uid,
       name: user.displayName,
       photoUrl: user.photoURL
     }
-  }).catch(function(error) {
-    // Handle errors here
+  } catch (error) {
     const { code, message } = error;
     console.log('error', code, message);
-  })
+  }
 }
 
 export {loginWithFacebook}
