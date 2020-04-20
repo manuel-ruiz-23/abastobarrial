@@ -33,7 +33,7 @@ function App() {
 
 const WebContainer = styled.div`
   height: 100%;
-  background-color: #ffebd9;
+  background-color: white;
 `;
 
 export default App;

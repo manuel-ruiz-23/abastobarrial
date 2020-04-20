@@ -1,0 +1,35 @@
+div.Header{
+    width: 100vw;
+    max-height: 15vh;
+    text-align: left;
+    margin-top: 2vh;
+}
+div.Header > div{
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+.Header > .Logo{
+    float: left;
+}
+.Header > .Logo > img{
+    max-height: 15vh;
+}
+.Header > .Title{
+    float: left;
+    font-weight: bolder;
+    font-size: x-large;
+    padding-top: 2vh;
+}
+.Header > .Menu{
+    float: right;
+    margin-top: 7vh;
+}
+.Header > .Menu ul{
+    list-style: none;
+}
+.Header > .Menu ul li{
+    display: inline;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
