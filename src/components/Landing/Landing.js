@@ -1,63 +1,36 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import styled from 'styled-components';
-import MapsNavigation from './MapsNavigation';
-import InitialBaner from './InitialBaner/InitialBaner'
+import MapsNavigation from '../MapsNavigation';
+import InitialBaner from '../InitialBaner/InitialBaner';
+import { LandingContainer, BoldOrange, BoldRed, Title, Hr, LandingText } from './Style.js';
+
 export default function Landing(){
   return (
     <LandingContainer>
-      <InitialBaner />
-      <Title>Mapa de Abasto Barrial</Title>
-      <LandingText>Es una iniciativa sin fines de lucro que busca crear un mapa
-        barrial acompañado de una base de datos que contenga información
-        útil para facilitar la organización comunitaria y así dinamizar la 
-        economía local (colonias, barrios) a través del abastecimiento de
-        servicios y productos de primera necesidad durante la contingencia.
-        En este estado de contingencia por el COVID-19 apoyémonos consumiendo
-        en negocios locales y ofreciendo ayuda a quien la necesite.    </LandingText>
-        <LandingText>Esto es posible gracias a todos.</LandingText>
-      <MapsNavigation />
+          <InitialBaner />
+          <div className="row">
+              <div className="col-lg-6">
+              <Title>Mapa de Abasto Barrial</Title>
+              <LandingText>Es una iniciativa sin fines de lucro que busca crear un mapa
+                barrial acompañado de una base de datos que contenga información
+                útil para facilitar la organización comunitaria y así dinamizar la 
+                economía local (colonias, barrios) a través del abastecimiento de
+                servicios y productos de primera necesidad durante la contingencia.
+                En este estado de contingencia por el COVID-19 apoyémonos consumiendo
+                en negocios locales y ofreciendo ayuda a quien la necesite.    </LandingText>
+                      <LandingText>Esto es posible gracias a todos.</LandingText>
+              </div>
+              <div className="col-lg-6">
+
+              </div>
+              <MapsNavigation />
+          </div>
       <Hr />
-      <TablonAnuncios /> 
+              <TablonAnuncios /> 
+              
     </LandingContainer>
   )
 }
-
-const Hr = styled.div`
-  width: 100%;
-  max-width: 768px;
-  height: 2px;
-  background-color: black;
-`;
-
-const Title = styled.h1`
-text-align: left;
-`;
-
-const LandingText = styled.p`
-  font-size: 1.5rem;
-  max-width: 44vw;
-  margin-bottom: 1rem;
-`;
-
-const BoldOrange = styled.span`
-  font-weight: bold;
-  color: #ff9900;
-`;
-
-const BoldRed = styled.span`
-  font-weight: bold;
-  color: #ff5656;
-`;
-
-const LandingContainer = styled.div`
-  padding: 0.5rem;
-  font-family: sans-serif;
-  text-align: left;
-  display: flex;
-  align-items: left;
-  flex-direction: column;
-`;
 
 const TablonAnuncios = () => (
   <div className="my-4" style={{maxWidth: '512px'}}>

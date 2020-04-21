@@ -7,7 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Landing from './components/Landing';
+import Landing from './components/Landing/Landing';
 import Map from './components/Map';
 import Login from './components/Login';
 

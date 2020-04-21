@@ -5,7 +5,7 @@ function InitialBaner() {
     return (
         <div className="Header">
             <div className="Logo">
-                <img src="/logo192.png" alt="Abasto Barrial Logo"/>
+                <img src="/logoAB.png" alt="Abasto Barrial Logo"/>
             </div>
             <div className="Title">Abasto<br/>Barrial</div>
             <div className="Menu">
