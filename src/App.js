@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import './App.css';
 import {
@@ -10,6 +10,7 @@ import {
 import Landing from './components/Landing';
 import Map from './components/Map';
 import Login from './components/Login';
+import InfoPage from './components/InfoPage';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           <Route path="/mapa/:colonia">
             <Map/>
           </Route>
+          <Route path="/info">
+            <InfoPage />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
@@ -33,7 +37,8 @@ function App() {
 
 const WebContainer = styled.div`
   height: 100%;
-  background-color: #ffebd9;
+  display: flex;
+  justify-content: center;
 `;
 
 export default App;
