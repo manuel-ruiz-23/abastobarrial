@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export default function InfoPage() {
   return (
     <Container>
+ 
       <Info>
         <Titulo>Mapa de abasto Barrial</Titulo>
         <p>
@@ -62,7 +63,6 @@ const ColaboradoresUl = styled.ul`
 const Container = styled.div`
   padding: 16px;
   padding-top: 32px;
-  height: 100vh;
   background-color: white;
   display: flex;
   justify-content: space-around;
