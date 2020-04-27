@@ -23,9 +23,10 @@ const Logo = styled.img`
 
 const Container = styled.div`
   height: calc(64px + 16px);
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
 `;
 
 const Links = styled.div`
