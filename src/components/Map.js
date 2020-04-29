@@ -5,25 +5,32 @@ import {
   useParams
 } from "react-router-dom"
 import MapsNavigation from './MapsNavigation';
+import NavBar from './NavBar';
 
 const Container = styled.div`
   display: flex;
   flex-flow: column;
+  flex-grow: 1;
   align-items: center;
+  overflow: hidden;
+`;
+const Content = styled.div`
+  display: flex;
+  flex-flow: row;
+  flex-grow: 1;
+  width:100%;
+  align-items: left;
   /* padding-top: 44px; */
   overflow: hidden;
   >iframe{
-    top: 0;
-    left: 0;
-    width: 90vw;
-    height: 78vh;
+    width: 100%;
+    height: 60vh;
   }
 `;
 
 const CommingSoon = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  flex-shrink:0;
   text-align: center;
   font-family: sans-serif;
   padding-top: 44px;
@@ -31,29 +38,39 @@ const CommingSoon = styled.div`
   color: #fa9a00;
 `;
 
-const Mapas = {
-  sur: 'https://www.google.com/maps/d/u/0/embed?mid=14fgrE5GHT-Yj8WuCxYwiI7U-2l8LaQYr',
-  sanBenito:'https://www.google.com/maps/d/embed?mid=14667J7NCp751NLJAXF2RJQ10QdRTj9lD',
-  modelo: undefined,
-  ley57: undefined,
-}
+const Title = styled.h3`
 
-export default function Map() {
+`;
+
+
+export default function Map(props) {
   const { colonia } = useParams();
+  const Mapas = props.Mapas;
 
-
-  if (!(colonia in Mapas)) {
-    return <CommingSoon>No tenemos esa colonia en nuestra base de datos :(</CommingSoon>;
+  if (Mapas == undefined || !(colonia in Mapas)) {
+    return (
+    <Container>
+      <NavBar/>
+      <Title>Mapas de comercios locales</Title>
+      <Content>
+      <MapsNavigation colonias={Mapas}/>
+      <CommingSoon>No tenemos esa colonia en nuestra base de datos :(</CommingSoon>
+        </Content>
+      </Container>);
   }
 
   return (
     <Container>
-      <MapsNavigation />
+
+      <NavBar/>
+      <Title>Mapas de comercios locales</Title>
+      <Content>
+      <MapsNavigation colonias={Mapas}/>
       <iframe
         src={Mapas[colonia]}
-        width="640"
-        height="480"
+        style={{display: 'inline-flex', flexShrink:0 }}
       ></iframe> 
+      </Content>
     </Container>
   );
 }

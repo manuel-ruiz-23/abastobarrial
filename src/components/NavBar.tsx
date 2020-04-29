@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
+  const { pathname } = useLocation();
+
   return (
+    
     <Container>
       <Logo src={require('../assets/logo.png')} alt="abasto barrial"/>
       <Links>
-        <MyLink to="/">Inicio</MyLink>
-        <MyLink to="/info">Info</MyLink>
+      {pathname!=='/' && <MyLink to="/">Inicio</MyLink>}
+      {!pathname.startsWith('/Mapa')  && <MyLink to="/Mapa">Mapa</MyLink>}
+      {!pathname.startsWith('/Info') && <MyLink to="/Info">Info</MyLink>
+}
       </Links>
     </Container>
   )
