@@ -7,7 +7,7 @@ const MapsNavigation = ({colonias}) => {
   if(pathname==='/'){
     return (
     <LinksContainer>
-        {colonias!==undefined && Object.entries(colonias).map(([c,m],colonia) => <Link to={'/Mapa/' + c}>{c}</Link>)}
+        {colonias!==undefined && Object.entries(colonias).map(([c,m],colonia) => <MyLink to={'/Mapa/' + c}>{c}</MyLink>)}
     </LinksContainer>
     );
   }
@@ -15,8 +15,7 @@ const MapsNavigation = ({colonias}) => {
     <Container>
       <LinksContainer>
       <Lista>
-        {pathname !== '/' && <ListaI> <Link to="/">Incio</Link></ListaI>}
-        {colonias!==undefined && Object.entries(colonias).map(([c,m],colonia) => <ListaI><Link to={'/Mapa/' + c}>{c}</Link></ListaI>)}
+        {colonias!==undefined && Object.entries(colonias).map(([c,m],colonia) => <ListaI><MyLink to={'/Mapa/' + c}>{c}</MyLink></ListaI>)}
       </Lista>
       </LinksContainer>
     </Container>
@@ -28,9 +27,12 @@ const Lista = styled.ul`
 
 const ListaI = styled.li`
 `
-
+const MyLink = styled(Link)`
+  color: black !important;
+  font-size: large;
+`;
 const Container = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: column;
   flex-shrink: 0;
   width: 200px;

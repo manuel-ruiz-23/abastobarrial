@@ -10,10 +10,11 @@ const NavBar = () => {
     <Container>
       <Logo src={require('../assets/logo.png')} alt="abasto barrial"/>
       <Links>
-      {pathname!=='/' && <MyLink to="/">Inicio</MyLink>}
-      {!pathname.startsWith('/Mapa')  && <MyLink to="/Mapa">Mapa</MyLink>}
-      {!pathname.startsWith('/Info') && <MyLink to="/Info">Info</MyLink>
-}
+      <MyLink to="/">Inicio</MyLink>
+      <MyLink to="/Mapa">Mapa</MyLink>
+              <MyLink to="/Info">Info</MyLink>
+              <MyLink to="/Colabora">Colabora</MyLink>
+
       </Links>
     </Container>
   )
@@ -31,7 +32,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: left;
+  align-items: flex-start;
 `;
 
 const Links = styled.div`

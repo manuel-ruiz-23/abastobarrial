@@ -7,7 +7,6 @@ import NavBar from './NavBar';
 export default function Landing(){
   return (
       <LandingContainer>
-         <NavBar />
          <InitialBaner />
          <Hr />
          <MapsNavigation />
