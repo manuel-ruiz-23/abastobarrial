@@ -12,7 +12,7 @@ import Map from './components/Map';
 import Login from './components/Login';
 import InfoPage from './components/InfoPage';
 import NavBar from './components/NavBar';
-import Colabora from './components/Colabora';
+// import Colabora from './components/Colabora';
 const Mapas = {
     Sur: 'https://www.google.com/maps/d/u/0/embed?mid=14fgrE5GHT-Yj8WuCxYwiI7U-2l8LaQYr',
     'San Benito': 'https://www.google.com/maps/d/embed?mid=14667J7NCp751NLJAXF2RJQ10QdRTj9lD',
@@ -24,25 +24,20 @@ function App() {
     return (
         <WebContainer>
             <Router>
+                <NavBar />
                 <Switch>
                     <Route exact path="/">
-                        <NavBar />
                         <Landing />
                     </Route>
-                    <Route path="/Mapa/:colonia">
-                        <Map Mapas={Mapas} />
-                    </Route>
-                    <Route path="/Mapa/">
+                    <Route path="/Mapa/:colonia?">
                         <Map Mapas={Mapas} />
                     </Route>
                     <Route path="/info">
-                        <NavBar />
                         <InfoPage />
                     </Route>
-                    <Route path="/Colabora">
-                        <NavBar />
+                    {/* <Route path="/Colabora">
                         <Colabora />
-                    </Route>
+                    </Route> */}
                     <Route path="/login">
                         <Login />
                     </Route>
@@ -54,7 +49,5 @@ function App() {
 
 const WebContainer = styled.div`
   height: 100%;
-  /* display: flex;
-  justify-content: center; */
 `;
 export default App;

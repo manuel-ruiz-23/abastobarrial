@@ -2,7 +2,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import MapsNavigation from './MapsNavigation';
-import NavBar from './NavBar';
 
 export default function Landing(){
   return (
