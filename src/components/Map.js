@@ -5,7 +5,6 @@ import {
     useParams
 } from "react-router-dom"
 import MapsNavigation from './MapsNavigation';
-import NavBar from './NavBar';
 
 const Container = styled.div`
   display: flex;
@@ -49,10 +48,9 @@ export default function Map(props) {
     const { colonia } = useParams();
     const Mapas = props.Mapas;
 
-    if (Mapas == undefined || !(colonia in Mapas)) {
+    if (Mapas === undefined || !(colonia in Mapas)) {
         return (
             <Container>
-                <NavBar />
                 <Title>Mapas de comercios locales</Title>
                 <ComingSoon>{colonia !== undefined ? 'No tenemos esa colonia en nuestra base de datos :(' : 'Selecciona una colonia para comenzar a buscar'}</ComingSoon>
                 <Content>
@@ -63,8 +61,6 @@ export default function Map(props) {
 
     return (
         <Container>
-
-            <NavBar />
             <Title>Mapas de comercios locales</Title>
             <Content>
                 <MapsNavigation colonias={Mapas} />
