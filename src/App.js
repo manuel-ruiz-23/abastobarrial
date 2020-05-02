@@ -29,7 +29,7 @@ function App() {
                     <Route exact path="/">
                         <Landing />
                     </Route>
-                    <Route path="/Mapa/:colonia">
+                    <Route path="/Mapa/:colonia?">
                         <Map Mapas={Mapas} />
                     </Route>
                     <Route path="/info">
