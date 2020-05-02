@@ -2,58 +2,77 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  useParams
+    useParams
 } from "react-router-dom"
 import MapsNavigation from './MapsNavigation';
+import NavBar from './NavBar';
 
 const Container = styled.div`
   display: flex;
   flex-flow: column;
+  flex-grow: 1;
   align-items: center;
+  overflow: hidden;
+`;
+const Content = styled.div`
+  display: flex;
+  flex-flow: row;
+  flex-grow: 1;
+  width:100%;
+  align-items: flex-start;
   /* padding-top: 44px; */
   overflow: hidden;
   >iframe{
-    top: 0;
-    left: 0;
-    width: 90vw;
-    height: 78vh;
+    width: 100%;
+    height: 60vh;
   }
 `;
 
-const CommingSoon = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  text-align: center;
+const ComingSoon = styled.div`
+  display: inline-flex;
+  flex-flow:column;
+  align-items: center;
   font-family: sans-serif;
-  padding-top: 44px;
-  font-size: 2rem;
+  padding-top: 1rem;
+  font-size: 1rem;
   color: #fa9a00;
+  text-align:center !important;
+  width:600px;
 `;
 
-const Mapas = {
-  sur: 'https://www.google.com/maps/d/u/0/embed?mid=14fgrE5GHT-Yj8WuCxYwiI7U-2l8LaQYr',
-  sanBenito:'https://www.google.com/maps/d/embed?mid=14667J7NCp751NLJAXF2RJQ10QdRTj9lD',
-  modelo: undefined,
-  ley57: undefined,
-}
+const Title = styled.h3`
 
-export default function Map() {
-  const { colonia } = useParams();
+`;
 
 
-  if (!(colonia in Mapas)) {
-    return <CommingSoon>No tenemos esa colonia en nuestra base de datos :(</CommingSoon>;
-  }
+export default function Map(props) {
+    const { colonia } = useParams();
+    const Mapas = props.Mapas;
 
-  return (
-    <Container>
-      <MapsNavigation />
-      <iframe
-        src={Mapas[colonia]}
-        width="640"
-        height="480"
-      ></iframe> 
-    </Container>
-  );
+    if (Mapas == undefined || !(colonia in Mapas)) {
+        return (
+            <Container>
+                <NavBar />
+                <Title>Mapas de comercios locales</Title>
+                <ComingSoon>{colonia !== undefined ? 'No tenemos esa colonia en nuestra base de datos :(' : 'Selecciona una colonia para comenzar a buscar'}</ComingSoon>
+                <Content>
+                    <MapsNavigation colonias={Mapas} />
+                </Content>
+            </Container>);
+    }
+
+    return (
+        <Container>
+
+            <NavBar />
+            <Title>Mapas de comercios locales</Title>
+            <Content>
+                <MapsNavigation colonias={Mapas} />
+                <iframe
+                    src={Mapas[colonia]}
+                    style={{ display: 'inline-flex', flexShrink: 0 }}
+                ></iframe>
+            </Content>
+        </Container>
+    );
 }

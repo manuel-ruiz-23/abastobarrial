@@ -2,30 +2,40 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
-const MapsNavigation = () => {
+const MapsNavigation = ({colonias}) => {
   const { pathname } = useLocation();
-
+  if(pathname==='/'){
+    return (
+    <LinksContainer>
+        {colonias!==undefined && Object.entries(colonias).map(([c,m],colonia) => <MyLink to={'/Mapa/' + c}>{c}</MyLink>)}
+    </LinksContainer>
+    );
+  }
   return (
     <Container>
-      <Title>Mapas de comercios locales</Title>
       <LinksContainer>
-        {pathname !== '/' && <Link to="/">Incio</Link>}
-        <Link to="/mapa/sur">Sur</Link> 
-        <Link to="/mapa/sanBenito">San Benito</Link> 
-        <Link to="#">Modelo</Link> 
-        <Link to="#">Ley 57</Link> 
+      <Lista>
+        {colonias!==undefined && Object.entries(colonias).map(([c,m],colonia) => <ListaI><MyLink to={'/Mapa/' + c}>{c}</MyLink></ListaI>)}
+      </Lista>
       </LinksContainer>
     </Container>
   );
 }
-
-const Container = styled.div`
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+const Lista = styled.ul`
+  list-style-type:none;
 `;
 
-const Title = styled.h3`
-
+const ListaI = styled.li`
+`
+const MyLink = styled(Link)`
+  color: black !important;
+  font-size: large;
+`;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 200px;
 `;
 
 const LinksContainer = styled.div`
