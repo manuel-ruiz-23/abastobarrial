@@ -5,6 +5,7 @@ import {
     useParams
 } from "react-router-dom"
 import MapsNavigation from './MapsNavigation';
+import MetaInfo from './MetaInfo';
 
 const Container = styled.div`
   display: flex;
@@ -44,6 +45,7 @@ export default function Map(props) {
 
     return (
         <Container>
+            <MetaInfo descripcion={"Encuentra negocios locales en " + colonia} titulo={"Abasto Barrial en " + colonia} /> 
             <Content>
                 <MapsNavigation colonias={Mapas} />
                 {Mapas[colonia] && (
