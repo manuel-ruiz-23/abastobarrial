@@ -49,7 +49,7 @@ export default function Map(props) {
                 {Mapas[colonia] && (
                     <iframe
                         src={Mapas[colonia]}
-                        style={{ display: 'inline-flex', flexShrink: 0 }}
+                        style={{ display: 'inline-flex', flexShrink: 0, height: 'calc(100vh - 80px)' }}
                     ></iframe>
                 )}
                 {!colonia && <ComingSoon>Selecciona una colonia para comenzar a buscar</ComingSoon>}
