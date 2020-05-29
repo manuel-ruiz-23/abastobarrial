@@ -23,15 +23,22 @@ export default function InfoPage() {
       </Info>
       <div>
         <Titulo>Aliados</Titulo>
-        <Logo src={require('../assets/color-tierra.jpg')} alt="color tierra"/>
-        <Logo src={require('../assets/tabb.png')} alt="tabb"/>
+        <a href="https://www.facebook.com/colortierra">
+          <Logo src={require('../assets/color-tierra.jpg')} alt="color tierra"/>
+        </a>
+        <a href="https://www.facebook.com/TabbArchitecture">
+          <Logo src={require('../assets/tabb.png')} alt="tabb"/>
+        </a>
         <Titulo style={{marginTop: '32px'}}>Colaboradores</Titulo>
         <ColaboradoresUl>
           <li>Manuel Ruiz</li>
           <li>Glenda Yanes Ordiales</li>
           <li>Ezra Koenig</li>
-          <li>Rodolfo cons</li>
+          <li>Rodolfo Cons</li>
           <li>Carolina Ruiz</li>
+          <li>Ana Maria Cajigas</li>
+          <li>fundacion hogares</li>
+          <li>Buenos vecinos</li>
         </ColaboradoresUl>
       </div>
     </Container>
