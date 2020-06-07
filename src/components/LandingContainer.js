@@ -15,9 +15,8 @@ export default function LandingContainer() {
                     <Footer />
                 </div>
                 <div className="col-md-6">
-                    <img src="/landing-tabb.png" />
+                    <LandingImg src="/landing-tabb.png" />
                 </div>
-                
             </div>
         </LandingFrame>
     )
@@ -28,13 +27,14 @@ const LandingFrame = styled.div`
   height:100vh;
   display:flex;
   flex-direction: column;
-  background-color: #594EF2 !important;
->div>div:nth-child(1){
-    display:flex;
-    flex-wrap: wrap;
-}
+  background-color: #594EF2;
+
+    >div>div:nth-child(1){
+        display:flex;
+        flex-wrap: wrap;
+    }
 `;
-const Tabb = styled.img`
-    src: url('/landing-tabb.png')
-    background:url('/landing-tabb.png') no-repeat;
+
+const LandingImg = styled.img`
+    max-height: 100vh;
 `;
