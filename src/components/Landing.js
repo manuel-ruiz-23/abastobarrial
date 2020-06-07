@@ -2,10 +2,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import MapsNavigation from './MapsNavigation';
+import MetaInfo from './MetaInfo'
 
 export default function Landing(){
   return (
       <LandingContainer>
+         <MetaInfo />
          <InitialBaner />
          <Hr />
          <MapsNavigation />
