@@ -37,6 +37,8 @@ export default function InfoPage() {
           <li>Rodolfo Cons</li>
           <li>Carolina Ruiz</li>
           <li>Ana Maria Cajigas</li>
+          <li>Celerino Herrera García</li>
+          <li>Tanya Cedillo</li>
           <li>fundacion hogares</li>
           <li>Buenos vecinos</li>
         </ColaboradoresUl>

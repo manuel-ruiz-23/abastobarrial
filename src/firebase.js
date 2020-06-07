@@ -40,5 +40,52 @@ async function loginWithFacebook() {
   }
 }
 
-export {loginWithFacebook}
+var googleProvider = new firebase.auth.GoogleAuthProvider();
+
+async function loginWithGoogle() {
+
+  try {
+    const result = await firebase.auth().signInWithPopup(googleProvider)
+    
+    // const token = result.credential.accessToken
+
+    const user = result.user
+
+    console.log('auth', user)
+  } catch (error) {
+    const { code, message } = error
+    console.log('error', code, message)
+  }
+
+}
+
+  /* Auth API */
+    
+const doCreateUserWithEmailAndPassword = (email, password) => {
+  firebase.auth.createUserWithEmailAndPassword(email, password)
+}
+
+const doSignInWithEmailAndPassword = (email, password) => {
+  firebase.auth.signInWithEmailAndPassword(email, password)
+}
+
+const doSignOut = () => {
+  firebase.auth.signOut()
+}
+
+const doPasswordReset = email => {
+  firebase.auth.sendPasswordResetEmail(email)
+} 
+
+const doPasswordUpdate = password => {
+  firebase.auth.currentUser.updatePassword(password)
+}
+
+const doSendEmailVerification = () => {
+  firebase.auth.currentUser.sendEmailVerification()
+}
+
+
+
+export {loginWithFacebook, loginWithGoogle }
 
