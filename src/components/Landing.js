@@ -5,29 +5,49 @@ import MapsNavigation from './MapsNavigation';
 
 export default function Landing(){
   return (
-      <LandingContainer>
+     <LandingContent>
          <InitialBaner />
-         <Hr />
-         <MapsNavigation />
-         <Hr />
-         <TablonAnuncios /> 
-    </LandingContainer>
+    </LandingContent>
   )
 }
 
 const InitialBaner = () => (
   <div className="mt-4">
     <Title>
-      Los <BoldOrange>Hermosillenses</BoldOrange> Juntos podemos <BoldOrange>Más</BoldOrange>
+            ¡Hagamos comunidad!
     </Title>
+    <br />
     <LandingText>
-      En este estado de contigencia por el <BoldRed>COVID-19 </BoldRed> 
-      apoyémonos consumiendo en negocios locales y 
-      ofreciendo ayuda a quien la necesite.
+            Abasto Barrial es un esfuerzo gratuito y comunitario en donde se integran
+            las opciones de productos y servicios elaborados por los vecinos de la 
+            localidad en un mapa directorio.
     </LandingText>
+   {/*
+    <Footer>
+            <div className="col-lg-6">
+                   <p>#Abasto Barrial</p>
+            </div>
+            <div className="col-lg-6 text-right">
+               <a href="#"> <SocialLogo src="/facebook.png" /> </a>
+               <a href="#"> <SocialLogo src="/instagram.png" /> </a>
+            </div>
+        </Footer>
+   */}
   </div>
 );
-
+const SocialLogo = styled.img`
+  height: 32px;
+  margin-right: 5%;
+`;
+const Footer = styled.div`
+  height:10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 18pt;
+  font-weigth: bolder;
+`;
 const Hr = styled.div`
   width: 100%;
   max-width: 768px;
@@ -36,12 +56,18 @@ const Hr = styled.div`
 `;
 
 const Title = styled.h1`
+color: white;
+text-align:left;
 `;
 
 const LandingText = styled.p`
   font-size: 1.5rem;
   max-width: 768px;
+  margin-top: 2vh;
   margin-bottom: 1rem;
+  color: white;
+  text-align: left;
+  height: 90%;
 `;
 
 const BoldOrange = styled.span`
@@ -54,8 +80,9 @@ const BoldRed = styled.span`
   color: #ff5656;
 `;
 
-const LandingContainer = styled.div`
-  padding: 0.5rem;
+const LandingContent = styled.div`
+  padding-left: 5vh;
+  padding-top: 10vh;
   font-family: sans-serif;
   text-align: center;
   display: flex;

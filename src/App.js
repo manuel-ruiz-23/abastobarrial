@@ -12,6 +12,7 @@ import Map from './components/Map';
 import Login from './components/Login';
 import InfoPage from './components/InfoPage';
 import NavBar from './components/NavBar';
+import LandingContainer from './components/LandingContainer';
 // import Colabora from './components/Colabora';
 const Mapas = {
     Sur: 'https://www.google.com/maps/d/u/0/embed?mid=14fgrE5GHT-Yj8WuCxYwiI7U-2l8LaQYr',
@@ -24,15 +25,16 @@ function App() {
     return (
         <WebContainer>
             <Router>
-                <NavBar />
                 <Switch>
                     <Route exact path="/">
-                        <Landing />
+                        <LandingContainer />
                     </Route>
                     <Route path="/Mapa/:colonia?">
+                        <NavBar />
                         <Map Mapas={Mapas} />
                     </Route>
                     <Route path="/info">
+                        <NavBar />
                         <InfoPage />
                     </Route>
                     {/* <Route path="/Colabora">
