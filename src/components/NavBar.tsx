@@ -59,6 +59,8 @@ const Container = styled.div`
 
 const Links = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
   width: max-content;
   margin-right: 5%;
