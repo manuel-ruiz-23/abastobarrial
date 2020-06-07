@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     
     <Container>
-      <Logo src={require('../assets/logo.png')} alt="abasto barrial"/>
+      <Logo src={require('../assets/logo-wide-i.png')} alt="abasto barrial"/>
       <Links>
         <MyLink to="/">Inicio</MyLink>
         <MyLink to="/Mapa">Mapa</MyLink>
@@ -19,9 +19,9 @@ const NavBar = () => {
 
 
 const Logo = styled.img`
-  height: 64px;
+  height: 94px;
   width: auto;
-  margin-left: 16px;
+  margin-left: 5%;
 `;
 
 const Container = styled.div`
@@ -35,17 +35,17 @@ const Container = styled.div`
 const Links = styled.div`
   display: flex;
   width: max-content;
-  padding-right: 16px;
+  margin-right: 5%;
 `;
 
 const MyLink = styled(Link)`
-  color: black;
+  color: white;
   font-size: 1.2rem;
   font-weight: 400;
   margin-right: 16px;
   &:hover {
     text-decoration: none;
-    color: black;
+    color: white;
   }
 `;
 export default NavBar;
