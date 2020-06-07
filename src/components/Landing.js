@@ -42,7 +42,7 @@ const LandingText = styled.p`
 
 const LandingContent = styled.div`
   padding-left: 5vh;
-  padding-top: 10vh;
+  /* padding-top: 10vh; */
   font-family: sans-serif;
   text-align: center;
   display: flex;
